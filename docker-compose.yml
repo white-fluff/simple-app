@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  simple_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: simple-app:latest
+    restart: unless-stopped
+    container_name: simple-app
+    hostname: simple-app
+    ports:
+      - "80:8080"
+    networks:
+      - simple-network
+
+networks:
+  simple-network:
